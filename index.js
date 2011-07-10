@@ -1,5 +1,6 @@
 var http = require("http"),
-    url  = require("url"),
+    url = require("url"),
+    fs = require('fs'),
     adapter = require("./redis-adapter");
 
 http.createServer(function(request, response) {
@@ -31,8 +32,12 @@ http.createServer(function(request, response) {
     } else {
 
         response.writeHead(200, {'Content-Type': 'text/plain'});
-        response.write('node-url-shortener');
-        response.end();
+
+        fs.readFile('./templates/template.html', function (err, data) {
+            response.writeHead(200, {'Content-Type': 'text/html'});
+            response.write(data);
+            response.end();
+        });
 
     }
 
