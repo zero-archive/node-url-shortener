@@ -1,22 +1,32 @@
 node-url-shortener
 ==================
 
-Сокращатель ссылок на `node.js` и `redis`.
+Сокращатель ссылок на `node.js`, `express` и `redis`.
 
 ##  Зависимости
 
-Для коккректной работы необходим пакет `redis - a node.js redis client`. Для установки выполнить:
+Пакет `redis - a node.js redis client`.
 
     npm install redis
-    
+
+Пакет `express framework`.
+
+    npm install express
+
 ## Использование
+
+Настройки хранятся в файле `./lib/config.js`
 
 Запуск сервера:
 
     $ node index.js
     Server running at http://127.0.0.1:8888/
 
+Запуск на DotCoud
+
+    $ dotcloud create <repo-name>
+    $ dotcloud push <repo-name> .
+
 ## TODO
 
-*  RESTful api
 *  Собственные имена ссылок

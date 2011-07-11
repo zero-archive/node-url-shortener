@@ -1,47 +1,60 @@
-var http = require("http"),
-    url = require("url"),
-    fs = require('fs'),
-    adapter = require("./redis-adapter");
+// Include modules
+var config = require('./lib/config'),
+    adapter = require("./lib/redis-adapter"),
+    express = require('express'),
+    app = express.createServer();
 
-http.createServer(function(request, response) {
-    var path = url.parse(request.url, true);
+// Middleware
+app.configure(function(){
+    app.use(express.bodyParser());
+    app.use(express.static(__dirname + '/public'));
+});
 
-    // Shorten link
-    if ('query' in path && 'url' in path.query) {
+// Api
+app.post('/api', function(req, res, next){
 
-        adapter.shorten(path.query.url, function(reply) {
-            response.writeHead(200, {'Content-Type': 'text/plain'});
-            response.write(reply);
-            response.end();
-        });
-
-    // Expand link
-    } else if ((/^\/[0-9a-z]+$/).test(path.pathname)) {
-
-        adapter.expand(path.pathname.slice(1), function(reply) {
-            if(reply) {
-                response.writeHead(302, {'Location': reply});
-                response.end();
-            } else {
-                response.writeHead(404, {});
-                response.end();
-            }
-        });
-
-    // Index
-    } else {
-
-        response.writeHead(200, {'Content-Type': 'text/plain'});
-
-        fs.readFile('./templates/template.html', function (err, data) {
-            response.writeHead(200, {'Content-Type': 'text/html'});
-            response.write(data);
-            response.end();
-        });
-
+    var response = { 
+        longUrl: req.param('longUrl') || ''
     }
 
+    res.contentType('application/json');
 
-}).listen(8080);
+    if(isUrl(response.longUrl)){
+        adapter.shorten(response.longUrl, function(reply) {
+            if(reply) {
+                response.shortUrl = reply;
+                res.send(response);
+            }
+        });
+    } else {
+        response.error = 'Incorrect url';
+        res.send(response);
+    }
 
-console.log('Server running at http://127.0.0.1:8080/');
+});
+
+
+// Index
+app.get('/:link', function(req, res){
+    
+    if(req.params.link) {
+        adapter.expand(req.params.link, function(reply) {
+            if(reply) {
+                res.redirect(reply, 301);
+            } else {
+                res.redirect('/');
+            }
+        });
+    } 
+    
+});
+
+// Url validator
+function isUrl(s) {
+    var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+    return regexp.test(s);
+}
+
+app.listen(config.port, config.host);
+
+console.log('Server running at http://' + config.host + ':' + config.port + '/');
