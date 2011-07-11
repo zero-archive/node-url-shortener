@@ -3,7 +3,9 @@
  */
 
 var redis = require("redis"),
-    client = redis.createClient();
+    client = redis.createClient(10542, '770d7961.dotcloud.com');
+
+client.auth("T55VADzR19lb7B6lh7Ro");
 
 // Redis debug mode
 /*
