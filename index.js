@@ -55,6 +55,10 @@ function isUrl(s) {
     return regexp.test(s);
 }
 
-app.listen(config.port, config.host);
+if(config.host == '127.0.0.1') {
+    app.listen(config.port);
+} else {
+    app.listen(config.port, config.host);
+}
 
 console.log('Server running at http://' + config.host + ':' + config.port + '/');
