@@ -1,8 +1,13 @@
 // Include modules
 var config = require('./lib/config'),
-    adapter = require("./lib/redis-adapter"),
     express = require('express'),
     app = express.createServer();
+
+if(config.dbtype == 'mongo') {
+    var adapter = require("./lib/mongo-adapter");
+} else {
+    var adapter = require("./lib/redis-adapter");
+}
 
 // Middleware
 app.configure(function(){
@@ -33,18 +38,19 @@ app.post('/api', function(req, res, next){
 
 });
 
-
 // Index
 app.get('/:link', function(req, res){
-    
-    if(req.params.link) {
-        adapter.expand(req.params.link, function(reply) {
-            if(reply) {
-                res.redirect(reply, 301);
-            } else {
-                res.redirect('/');
-            }
-        });
+
+    if(typeof(req.params.link.length) !== "undefined") {
+        if((/^(\w+)$/i).test(req.params.link)) {
+            adapter.expand(req.params.link, function(reply) {
+                if(reply) {
+                    res.redirect(reply, 301);
+                } else {
+                    res.redirect('/');
+                }
+            });
+        }
     } 
     
 });

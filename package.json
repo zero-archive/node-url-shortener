@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "redis": ">=0.6.6",
-    "express": ">=2.4.2"
+    "express": ">=2.4.2",
+    "mongodb": ">=0.9.6"
   }
 }
