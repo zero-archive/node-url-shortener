@@ -2,7 +2,7 @@ node-url-shortener
 ==================
 
 Сокращатель ссылок на `node.js`, `express` 
-Тип базыданных `redis` и `mongo`.
+Тип базы данных `redis` и `mongo`.
 
 ##  Зависимости
 
