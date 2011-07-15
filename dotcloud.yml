@@ -3,3 +3,6 @@ www:
 
 redis:
   type: redis
+
+mongo:
+  type: mongodb

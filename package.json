@@ -1,6 +1,17 @@
 {
   "name": "node-url-shortener",
-  "version": "1.0.0",
+  "author": "dZ <mail@dotzero.ru> (http://www.dotzero.ru/)",
+  "description": "A url shortener and expander, use Redis or MongoDB",
+  "version": "1.2.0",
+  "homepage": "https://github.com/dotzero/node-url-shortener",
+  "keywords": ["node", "urls", "shortner", "expander", "redis", "mongo", "mongodb", "express"],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dotzero/node-url-shortener.git"
+  },
+  "engines": {
+    "node": ">=v0.4.5"
+  },
   "dependencies": {
     "redis": ">=0.6.6",
     "express": ">=2.4.2",

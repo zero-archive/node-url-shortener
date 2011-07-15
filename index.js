@@ -61,7 +61,7 @@ function isUrl(s) {
     return regexp.test(s);
 }
 
-if(config.host == '127.0.0.1') {
+if(config.host == 'localhost') {
     app.listen(config.port);
 } else {
     app.listen(config.port, config.host);
