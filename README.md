@@ -1,37 +1,26 @@
-node-url-shortener
+Node Url Shortener
 ==================
 
-Сокращатель ссылок на `node.js`, `express` 
-Тип базы данных `redis` и `mongo`.
+URL Shortener using NodeJS and Redis or MongoDB.
 
-##  Зависимости
+## Dependencies
 
-Пакет `express framework`.
+*  https://github.com/visionmedia/express
+*  https://github.com/mranney/node_redis (for Redis)
+*  https://github.com/christkv/node-mongodb-native (for MongoDB)
 
-    npm install express
+## Config
 
-Для использования `redis`. Пакет `redis - a node.js redis client`.
+The main configuration file is named config.js. This file can be found in `./lib/config.js`.
 
-    npm install redis
-
-Для использования `mongo`. Пакет `node-mongodb-native`.
-
-    npm install mongodb
-
-## Использование
-
-Настройки хранятся в файле `./lib/config.js`
-
-Запуск сервера:
+## Using
 
     $ node index.js
     Server running at http://127.0.0.1:8888/
 
-Запуск на DotCoud
+## Using on DotCloud service
+
+Copy all files from `./dotcloud/` folder to the root
 
     $ dotcloud create <repo-name>
     $ dotcloud push <repo-name> .
-
-## TODO
-
-*  Собственные имена ссылок

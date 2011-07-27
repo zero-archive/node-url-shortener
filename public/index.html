@@ -17,13 +17,11 @@
         $('#submit').click(function(e){
             e.preventDefault;
 
-            $.post('/api', { 'longUrl' : $('#urlfield').val() }, function(data){
-                if(data.shortUrl) {
-                    var url = window.location.href + data.shortUrl;
-
+            $.getJSON('/api/v1/shorten', { 'long_url' : $('#urlfield').val() }, function(data){
+                if(data.url) {
                     $('#urlfield').hide();
                     $('#submit').hide();
-                    $('#urllink a').attr('href', url).text(url);
+                    $('#urllink a').attr('href', data.url).text(data.url);
                     $('#urllink').fadeIn('slow');
                 }
             })
