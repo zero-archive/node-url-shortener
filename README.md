@@ -24,4 +24,5 @@ The main configuration file is named config.js. This file can be found in `./lib
 *  Set `dotcloud` to `true` in `./lib/config.js` file
 
     $ dotcloud create <repo-name>
-    $ dotcloud push <repo-name> .
+    $ dotcloud push <repo-name
+
