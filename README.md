@@ -20,7 +20,8 @@ The main configuration file is named config.js. This file can be found in `./lib
 
 ## Using on DotCloud service
 
-Copy all files from `./dotcloud/` folder to the root
+*  Copy all files from `./dotcloud/` folder to the root
+*  Set `dotcloud` to `true` in `./lib/config.js` file
 
     $ dotcloud create <repo-name>
     $ dotcloud push <repo-name> .
