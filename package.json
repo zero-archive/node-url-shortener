@@ -1,0 +1,17 @@
+{
+  "name" : "node-url-shortener",
+  "description" : "URL Shortener using NodeJS and Redis or MongoDB.",
+  "version" : "0.5.0",
+  "author" : "dZ <mail@dotzero.ru>",
+  "engines" : ["node"],
+  "repository" : { "type":"git", "url":"http://github.com/dotzero/node-url-shortener" },
+  "dependencies" : {
+    "connect" : ">=1.6.0",
+    "ejs" : ">=0.4.3",
+    "express" : ">=2.4.3",
+    "redis" : ">=0.7.0",
+    "connect-redis" : ">=1.0.7",
+    "connect-assetmanager" : ">=0.0.21",
+    "connect-assetmanager-handlers" : ">=0.0.17"
+  }
+}
