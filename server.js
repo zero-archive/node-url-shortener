@@ -13,10 +13,6 @@ function NotFound(msg) {
     Error.captureStackTrace(this, arguments.callee);
 }
 
-function l(msg) {
-    console.log(msg);
-}
-
 // Gotta Catch 'Em All
 process.addListener('uncaughtException', function (err, stack) {
     console.log('Caught exception: ' + err + '\n' + err.stack);
@@ -128,8 +124,6 @@ app.dynamicHelpers({
 
 // Error handling
 app.error(function (err, req, res, next) {
-    console.log(err);
-
     res.contentType('html');
 
     if (err instanceof NotFound) {
@@ -214,7 +208,7 @@ app.all('/api/v1/:link', function (req, res) {
 app.all(/^\/(\w+)\+/, function (req, res){
     nus.statics(req.params[0], function (err, reply) {
         if (err) {
-            throw new NotFound;
+            res.send(404);
         } else {
             reply.url = config.url + '/' + reply.hash;
 
@@ -228,7 +222,7 @@ app.all(/^\/(\w+)\+/, function (req, res){
 app.all(/^\/(\w+)$/, function (req, res){
     nus.expand(req.params[0], function (err, reply) {
         if (err) {
-            res.redirect('/');
+            res.send(404);
         } else {
             res.redirect(reply.long_url, 301);
         }
@@ -237,7 +231,7 @@ app.all(/^\/(\w+)$/, function (req, res){
 
 // If all fails, hit em with the 404
 app.all('*', function (req, res) {
-    throw new NotFound;
+    res.send(404);
 });
 
 app.listen(config.port, config.host);

@@ -1,8 +1,7 @@
 www:
   type: nodejs
+  environment:
+    MODE: production
 
 redis:
   type: redis
-
-mongo:
-  type: mongodb
