@@ -1,6 +1,7 @@
-header {
+.container {
     text-align: center;
     padding-top: 50px;
+    width: 500px;
 }
 
 header h1 {
@@ -12,41 +13,11 @@ header h1 {
     padding-top: 36px;
 }
 
-header p {
-    font-weight: 300;
-    font-size: 30px;
-    line-height: 36px;
-    margin-bottom: 18px;
-}
-
-#submit {
-    -webkit-border-radius: 14px;
-    -moz-border-radius: 14px;
-    border-radius: 14px;
-}
-
 #urlfield {
     background: url('../img/link.png') no-repeat 10px 4px;
     padding-left: 30px;
 }
 
-#notify {
-    margin: 0 auto;
-    width: 50em;
-}
-
-#stats {
-    margin: 0 auto;
-    width: 50em;
-}
-
-#error {
-    text-align: center;
-    margin: 0 auto;
-    width: 50em;
-}
-
 footer {
-    text-align: center;
     padding-top: 50px;
 }

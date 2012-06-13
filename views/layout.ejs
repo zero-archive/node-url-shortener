@@ -14,8 +14,21 @@
     <![endif]-->
 </head>
 <body>
-    <%- body %>
+    <div class="container">
+        <header>
+            <h1><a href="/">nus</a></h1>
+            <p class="lead">Simple URL Shortener using NodeJS and Redis.</p>
+        </header>
+        <article>
+            <%- body %>
+        </article>
+        <footer>
+            <p>2012 &copy; <a href="http://dotzero.ru">dotzero</a> | design based on <a href="http://twitter.github.com/bootstrap/">bootstrap</a></p>
+        </footer>
+    </div>
+
     <a href="https://github.com/dotzero/node-url-shortener"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+
     <script src="/static/js/<%=assetsCacheHashes.js||0%>/client.js" type="text/javascript"></script>
 </body>
 </html>

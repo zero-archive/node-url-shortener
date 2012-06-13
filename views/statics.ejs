@@ -1,33 +1,15 @@
-    <div class="container-fluid">
-        <header>
-            <h1><a href="/">nus</a></h1>
-            <p>Simple URL Shortener using NodeJS and Redis.</p>
-        </header>
-        <div id="stats" class="well">
-            <table class="table table-condensed">
-            <thead>
-                <tr>
-                <th>Title</th>
-                <th>Value</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Shortened URL</td>
-                    <td><%= statics.url %></td>
-                </tr>
-                <tr>
-                    <td>Long URL</td>
-                    <td><%= statics.long_url %></td>
-                </tr>
-                <tr>
-                    <td>Total clicks</td>
-                    <td><%= statics.clicks %></td>
-                </tr>
-            </tbody>
-            </table>
-        </div>
-        <footer>
-            Created by <a href="http://twitter.com/dot_zero">@dot_zero</a> | <a href="http://dotzero.ru">dotzero.ru</a>
-        </footer>
-    </div>
+<table class="table table-bordered table-striped table-condensed">
+<thead>
+    <tr>
+        <th><a href="<%= statics.url %>" target="_blank"><%= statics.url %></a></th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td><a href="<%= statics.long_url %>" target="_blank"><%= statics.long_url %></a></td>
+    </tr>
+    <tr>
+        <td><strong><%= statics.clicks %></strong> clicks</td>
+    </tr>
+</tbody>
+</table>

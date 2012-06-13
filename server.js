@@ -30,7 +30,7 @@ var assetsSettings = {
         'path': './public/js/',
         'dataType': 'javascript',
         'files': [
-            'https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js',
+            'jquery.min.js',
             'bootstrap.min.js',
             'nus.js'
         ],
@@ -88,28 +88,11 @@ app.configure(function () {
 });
 
 // ENV based configuration
-
-// Show all errors and keep search engines out using robots.txt
 app.configure('development', function () {
     app.use(express.errorHandler({
         'dumpExceptions': true,
         'showStack': true
     }));
-    app.all('/robots.txt', function (req, res) {
-        res.send('User-agent: *\nDisallow: /', {
-            'Content-Type': 'text/plain'
-        });
-    });
-});
-
-// Suppress errors, allow all search engines
-app.configure('production', function () {
-    app.use(express.errorHandler());
-    app.all('/robots.txt', function (req, res) {
-        res.send('User-agent: *', {
-            'Content-Type': 'text/plain'
-        });
-    });
 });
 
 // Template helpers
