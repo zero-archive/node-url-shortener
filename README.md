@@ -1,7 +1,7 @@
 Node Url Shortener
 ==================
 
-URL Shortener using NodeJS and Redis or MongoDB.
+URL Shortener using NodeJS and Redis.
 
 ### Install on dev machine
 
@@ -15,7 +15,6 @@ URL Shortener using NodeJS and Redis or MongoDB.
 
 *  git clone https://github.com/dotzero/node-url-shortener myproject
 *  cd myproject
-*  cp ./dotcloud/ ./
 *  edit config.js # set `dotcloud` to `true`
 *  dotcloud create <repo-name>
 *  dotcloud push <repo-name
