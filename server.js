@@ -189,7 +189,7 @@ app.all('/api/v1/:link', function (req, res) {
 });
 
 app.all(/^\/(\w+)\+/, function (req, res){
-    nus.statics(req.params[0], function (err, reply) {
+    nus.statistic(req.params[0], function (err, reply) {
         if (err) {
             res.send(404);
         } else {
