@@ -195,8 +195,8 @@ app.all(/^\/(\w+)\+/, function (req, res){
         } else {
             reply.url = config.url + '/' + reply.hash;
 
-            res.render('statics', {
-                statics: reply
+            res.render('statistic', {
+                statistic: reply
             });
         }
     });
@@ -214,7 +214,7 @@ app.all(/^\/(\w+)$/, function (req, res){
 
 // If all fails, hit em with the 404
 app.all('*', function (req, res) {
-    res.send(404);
+    res.render('errors/404');
 });
 
 app.listen(config.port, config.host);
