@@ -6,12 +6,12 @@
   "engines" : ["node"],
   "repository" : { "type":"git", "url":"http://github.com/dotzero/node-url-shortener" },
   "dependencies" : {
-    "connect" : ">=1.6.0",
-    "ejs" : ">=0.4.3",
-    "express" : ">=2.4.3",
-    "redis" : ">=0.7.0",
-    "connect-redis" : ">=1.0.7",
-    "connect-assetmanager" : ">=0.0.21",
-    "connect-assetmanager-handlers" : ">=0.0.17"
+    "connect" : "1.x",
+    "ejs" : "0.4.x",
+    "express" : "2.5.x",
+    "redis" : "0.7.x",
+    "connect-redis" : "1.x",
+    "connect-assetmanager" : "0.0.x",
+    "connect-assetmanager-handlers" : "0.0.x"
   }
 }
