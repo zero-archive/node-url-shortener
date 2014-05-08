@@ -31,10 +31,11 @@
 
     _nus.prototype.request = function (url) {
         var self = this;
-        $.getJSON(self._api_, {long_url: url}, function (data) {
+        $.post(self._api_, {long_url: url}, function (data) {
+            console.log(data);
             if (data.hasOwnProperty('status_code') && data.hasOwnProperty('status_txt')) {
                 if (parseInt(data.status_code) == 200) {
-                    self._input_.val(data.url).select();
+                    self._input_.val(data.short_url).select();
                     return self.alert('Copy your shortened url');
                 } else {
                     self._errormsg_ = data.status_txt;

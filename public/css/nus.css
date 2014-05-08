@@ -14,7 +14,7 @@ header h1 {
 }
 
 #urlfield {
-    background: url('/img/link.png') no-repeat 10px 4px;
+    background: url('/static/img/link.png') no-repeat 10px 4px;
     padding-left: 30px;
 }
 
