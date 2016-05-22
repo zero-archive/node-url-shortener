@@ -14,7 +14,8 @@ module.exports = function (express, app) {
   // Middleware
   app.use(morgan('dev'))
   app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-  app.use(bodyParser());
+  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.json());
   app.use(methodOverride());
   app.use('/static', express.static(path.join(__dirname, 'public')));
 };

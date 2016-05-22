@@ -91,5 +91,5 @@ function sendResponse (res, code, data) {
   data.status_code = (status_codes[code]) ? code : 503,
   data.status_txt = status_codes[code] || status_codes[503]
 
-  res.json(data.status_code, data)
+  res.status(data.status_code).json(data)
 }
