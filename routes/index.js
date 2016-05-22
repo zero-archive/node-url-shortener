@@ -87,7 +87,6 @@ function sendResponse (res, code, data) {
   res.type('application/json');
 
   data = data || {};
-
   data.status_code = (status_codes[code]) ? code : 503,
   data.status_txt = status_codes[code] || status_codes[503]
 
