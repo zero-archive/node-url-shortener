@@ -1,5 +1,7 @@
 # Node Url Shortener
 
+[![Build Status](https://travis-ci.org/dotzero/node-url-shortener.svg?branch=master)](https://travis-ci.org/dotzero/node-url-shortener)
+
 URL Shortener using [Node.js](http://nodejs.org) and [Redis](http://redis.io).
 
 ## Using
