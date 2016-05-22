@@ -1,18 +1,30 @@
-Node Url Shortener
-==================
+# Node Url Shortener
 
-URL Shortener using NodeJS and Redis.
+URL Shortener using [Node.js](http://nodejs.org) and [Redis](http://redis.io).
 
 ## Using
 
-* Express 4.1
+* Express 4
 * Redis
 
-## Install on dev machine
+## Quick Start
 
-*  `git clone https://github.com/dotzero/node-url-shortener myproject`
-*  `cd myproject`
-*  `npm install`
-*  start with `node app.js --url "http://127.0.0.1:3000"`
-*  to run tests : `npm test`
+```bash
+$ git clone https://github.com/dotzero/node-url-shortener nus
+$ cd nus
+$ npm install --production
+$ node app.js --url "http://127.0.0.1:3000"
+```
 
+## Tests
+
+To run the test suite, first install the dependencies, then run `npm test`:
+
+```bash
+$ npm install
+$ npm test
+```
+
+## License
+
+Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
