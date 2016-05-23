@@ -12,6 +12,7 @@
     "url": "http://github.com/dotzero/node-url-shortener"
   },
   "dependencies": {
+    "base58": "^0.1.0",
     "body-parser": "^1.15.1",
     "cors": "^2.7.1",
     "ejs": "^2.4.1",
