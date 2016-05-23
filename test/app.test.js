@@ -2,7 +2,7 @@ var request = require('superagent')
   , mock = require('superagent-mocker')(request)
   , expect = require('expect.js');
 
-describe('Node Url Shortener RESTful API', function () {
+describe('Test Node Url Shortener - RESTful API', function () {
   var id;
 
   beforeEach(function() {
