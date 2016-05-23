@@ -1,4 +1,5 @@
 var path = require('path')
+  , cors = require('cors')
   , morgan  = require('morgan')
   , favicon = require('serve-favicon')
   , bodyParser = require('body-parser')
@@ -12,6 +13,7 @@ module.exports = function (express, app) {
   app.set('views', path.join(__dirname, 'views'));
 
   // Middleware
+  app.use(cors());
   app.use(morgan('dev'))
   app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
   app.use(bodyParser.urlencoded({ extended: false }));
