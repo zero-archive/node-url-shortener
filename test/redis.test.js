@@ -9,6 +9,10 @@ mock.prototype.incr = function(key, callback) {
   callback(null, 1);
 };
 
+mock.prototype.get = function(key, callback) {
+  callback(null, 'http://example.com');
+};
+
 describe('Test Node Url Shortener - RedisModel', function () {
   var redis, prefix;
 
@@ -39,20 +43,28 @@ describe('Test Node Url Shortener - RedisModel', function () {
     done();
   });
 
-  it('md5 should MD5 hash', function (done) {
+  it('md5 should return MD5 hash', function (done) {
     var data = redis.md5('http://example.com');
     expect(data).to.be.a('string');
     expect(data).to.be('a9b9f04336ce0181a08e774e01113b31');
     done();
   });
 
-  it('uniqId should unique Redis key', function (done) {
+  it('uniqId should return unique Redis key', function (done) {
     redis.uniqId(function(err, hash) {
       expect(err).to.be(null);
       expect(hash).to.be.a('string');
       expect(hash).to.match(/[\w=]+/);
       done();
     });
+  });
 
+  it('findUrl should return Redis value', function (done) {
+    redis.findUrl('foo', function(err, url) {
+      expect(err).to.be(null);
+      expect(url).to.be.a('string');
+      expect(url).to.be('http://example.com');
+      done();
+    });
   });
 })
