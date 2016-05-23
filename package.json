@@ -34,7 +34,7 @@
     "rest"
   ],
   "scripts": {
-    "start": "node app.js",
+    "start": "node app",
     "test": "mocha"
   }
 }
