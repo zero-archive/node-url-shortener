@@ -1,23 +1,4 @@
 .container {
     text-align: center;
     padding-top: 50px;
-    width: 500px;
-}
-
-header h1 {
-    font-size: 81px;
-    font-weight: bold;
-    letter-spacing: -1px;
-    line-height: 1;
-    margin-bottom: 18px;
-    padding-top: 36px;
-}
-
-#urlfield {
-    background: url('/static/img/link.png') no-repeat 10px 4px;
-    padding-left: 30px;
-}
-
-footer {
-    padding-top: 50px;
 }
