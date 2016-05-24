@@ -1,5 +1,6 @@
 module.exports = function (app, nus) {
   var opts = app.get('opts')
+    , http = require('http')
     , api = require('./api.js')(app, nus)
 
   // api routes
@@ -34,10 +35,17 @@ module.exports = function (app, nus) {
     app.use(function(err, req, res, next) {
       console.log('Caught exception: ' + err + '\n' + err.stack);
       res.status(err.status || 500);
-      res.render('errors/404', {
-        message: err.message,
-        error: err
-      });
+      if (/^\/api\/v1/.test(req.originalUrl)) {
+        res.json({
+          status_code: err.status || 500,
+          status_txt: http.STATUS_CODES[err.status] || http.STATUS_CODES[500]
+        });
+      } else {
+        res.render('errors/404', {
+          message: err.message,
+          error: err
+        });
+      }
     });
   }
 
@@ -45,9 +53,16 @@ module.exports = function (app, nus) {
   // no stacktraces leaked to user
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('errors/404', {
-      message: err.message,
-      error: {}
-    });
+    if (/^\/api\/v1/.test(req.originalUrl)) {
+      res.json({
+        status_code: err.status || 500,
+        status_txt: http.STATUS_CODES[err.status] || ''
+      });
+    } else {
+      res.render('errors/404', {
+        message: err.message,
+        error: {}
+      });
+    }
   });
 };
