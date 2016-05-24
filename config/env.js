@@ -1,7 +1,6 @@
 var path = require('path')
   , cors = require('cors')
   , morgan  = require('morgan')
-  , favicon = require('serve-favicon')
   , bodyParser = require('body-parser')
   , methodOverride = require('method-override');
 
@@ -15,9 +14,8 @@ module.exports = function (express, app) {
   // Middleware
   app.use(cors());
   app.use(morgan('dev'))
-  app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
   app.use(methodOverride());
-  app.use('/static', express.static(path.join(__dirname, 'public')));
+  app.use(express.static(path.join(__dirname, 'public')));
 };

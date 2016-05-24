@@ -20,7 +20,6 @@
     "method-override": "^2.3.6",
     "morgan": "^1.7.0",
     "redis": "^2.6.0-2",
-    "serve-favicon": "^2.3.0",
     "yargs": "^4.7.1"
   },
   "devDependencies": {
