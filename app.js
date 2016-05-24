@@ -13,6 +13,7 @@ process.addListener('uncaughtException', function (err, stack) {
 // Common options
 app.set('__dirname', __dirname);
 app.set('opts', opts);
+app.set('x-powered-by', false);
 
 // Load express configuration
 require(path.join(__dirname, 'config', 'env.js'))(express, app);
