@@ -56,4 +56,4 @@ $ npm test
 
 ## License
 
-Released under [the MIT license](LICENSE.md)
+Released under [the MIT license](LICENSE)
