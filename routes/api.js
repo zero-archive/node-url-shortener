@@ -1,5 +1,6 @@
 module.exports = function (app, nus) {
   var opts = app.get('opts')
+    , http = require('http')
     , router = require('express').Router();
 
   router.route('/shorten')
@@ -30,20 +31,9 @@ module.exports = function (app, nus) {
     });
 
   function jsonResponse (res, code, data) {
-    var status_codes = {
-          200: 'OK',
-          300: 'Incorrect Link',
-          400: 'Bad Request',
-          404: 'Not Found',
-          500: 'Internal Server Error',
-          503: 'Unknown Server Error'
-        };
-
-    res.type('application/json');
-
     data = data || {};
-    data.status_code = (status_codes[code]) ? code : 503,
-    data.status_txt = status_codes[code] || status_codes[503]
+    data.status_code = (http.STATUS_CODES[code]) ? code : 503,
+    data.status_txt = http.STATUS_CODES[code] || http.STATUS_CODES[503]
 
     res.status(data.status_code).json(data)
   }
