@@ -30,6 +30,19 @@ module.exports = function (app, nus) {
       });
     });
 
+  router.route('/expand/:short_url')
+    .get(function (req, res) {
+      nus.expand(req.params.short_url, function (err, reply) {
+        if (err) {
+          jsonResponse(res, err);
+        } else if (reply) {
+          jsonResponse(res, 200, reply);
+        } else {
+          jsonResponse(res, 500);
+        }
+      });
+    });
+
   function jsonResponse (res, code, data) {
     data = data || {};
     data.status_code = (http.STATUS_CODES[code]) ? code : 503,
