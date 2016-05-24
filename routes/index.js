@@ -51,22 +51,3 @@ module.exports = function (app, nus) {
     });
   });
 };
-
-function sendResponse (res, code, data) {
-  var status_codes = {
-        200 : 'OK',
-        300 : 'Incorrect Link',
-        400 : 'Bad Request',
-        404 : 'Not Found',
-        500 : 'Internal Server Error',
-        503 : 'Unknown Server Error'
-      };
-
-  res.type('application/json');
-
-  data = data || {};
-  data.status_code = (status_codes[code]) ? code : 503,
-  data.status_txt = status_codes[code] || status_codes[503]
-
-  res.status(data.status_code).json(data)
-}
