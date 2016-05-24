@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
+    "fakeredis": "^1.0.3",
     "mocha": "^2.4.5",
     "superagent": "^2.0.0-alpha.3",
     "superagent-mocker": "^0.4.0"
