@@ -1,7 +1,7 @@
 module.exports = function (app, nus) {
   var opts = app.get('opts')
     , http = require('http')
-    , api = require('./api.js')(app, nus)
+    , api = require('./api.js')(app, nus);
 
   // api routes
   app.use('/api/v1', api);
