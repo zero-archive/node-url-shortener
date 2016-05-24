@@ -11,7 +11,7 @@ describe('Test Node Url Shortener - RedisModel', function () {
     , short_url;
 
   beforeEach(function() {
-    fakeredis = require('fakeredis').createClient(0, 'localhost', {fast : true})
+    fakeredis = require('fakeredis').createClient(0, 'localhost', {fast : true});
     redis = new RedisModel(null, fakeredis);
     prefix = RedisModel._prefix_;
     long_url = 'http://example.com';
