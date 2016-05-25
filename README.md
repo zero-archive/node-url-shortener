@@ -45,6 +45,32 @@ $ npm install --production
 $ NODE_ENV=production node app --url "http://example.com"
 ```
 
+# RESTful API
+
+`POST /api/v1/shorten` with form data `long_url=http://google.com`
+
+```json
+{
+  "hash": "rnRu",
+  "long_url": "http://google.com",
+  "short_url": "http://127.0.0.1:3000/rnRu",
+  "status_code": 200,
+  "status_txt": "OK"
+}
+```
+
+`GET /api/v1/expand/:hash` with query `rnRu`
+
+```json
+{
+  "clicks": "1",
+  "hash": "rnRu",
+  "long_url": "http://google.com",
+  "status_code": 200,
+  "status_txt": "OK"
+}
+```
+
 ## Tests
 
 To run the test suite, first install the dependencies, then run `npm test`:

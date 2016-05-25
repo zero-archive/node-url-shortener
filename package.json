@@ -1,6 +1,6 @@
 {
   "name": "node-url-shortener",
-  "description": "URL Shortener using Node.js and Redis",
+  "description": "A modern, minimalist, and lightweight URL shortener using Node.js and Redis",
   "version": "0.7.0",
   "author": "dotzero <mail@dotzero.ru>",
   "license": "MIT",
