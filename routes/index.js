@@ -41,7 +41,8 @@ module.exports = function (app, nus) {
           status_txt: http.STATUS_CODES[err.status] || http.STATUS_CODES[500]
         });
       } else {
-        res.render('errors/404', {
+        res.render('error', {
+          code: err.status || 500,
           message: err.message,
           error: err
         });
@@ -59,9 +60,10 @@ module.exports = function (app, nus) {
         status_txt: http.STATUS_CODES[err.status] || ''
       });
     } else {
-      res.render('errors/404', {
+      res.render('error', {
+        code: err.status || 500,
         message: err.message,
-        error: {}
+        error: false
       });
     }
   });
