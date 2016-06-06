@@ -49,9 +49,19 @@
 
   $(function () {
     var n = new _nus();
+    var clipboard = new Clipboard('.btn');
+
     $(n._form_).on('submit', function (e) {
       e && e.preventDefault();
       n.init();
+
+      clipboard.on('success', function(e) {
+        n.alert('Copied to clipboard!');
+      });
+
+      clipboard.on('error', function(e) {
+        n.alert('Error copying to clipboard', true);
+      });
     });
   });
 
