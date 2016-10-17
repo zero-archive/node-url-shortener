@@ -16,7 +16,7 @@
 ```bash
 $ git clone https://github.com/dotzero/node-url-shortener nus
 $ cd nus
-$ docker-compsoe up
+$ docker-compose up
 ``` 
 
 ## Quick Start
