@@ -11,6 +11,14 @@
 * [Express 4](http://expressjs.com/)
 * [Redis](http://redis.io)
 
+## Docker Quick Start including Redis
+
+```bash
+$ git clone https://github.com/dotzero/node-url-shortener nus
+$ cd nus
+$ docker-compsoe up
+``` 
+
 ## Quick Start
 
 ```bash
