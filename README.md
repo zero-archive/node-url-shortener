@@ -33,6 +33,7 @@ Options:
   --redis-host  Redis Server hostname                     [default: "localhost"]
   --redis-port  Redis Server port number                         [default: 6379]
   --redis-pass  Redis Server password                           [default: false]
+  --redis-db    Redis DB index                                      [default: 0]
   -h, --help    Show help                                              [boolean]
 ```
 
