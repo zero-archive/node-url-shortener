@@ -12,6 +12,8 @@ module.exports = require('yargs')
   .default('redis-port', 6379)
   .describe('redis-pass', 'Redis Server password')
   .default('redis-pass', false)
+  .describe('redis-db', 'Redis DB index')
+  .default('redis-db', 0)
   .help('h')
   .alias('h', 'help')
   .argv;
