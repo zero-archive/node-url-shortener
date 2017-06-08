@@ -1,4 +1,35 @@
+body{
+  background: #f5f5f5;
+}
+
+#header{
+  background: #00bfff;
+  color: #ffffff;
+}
+
 .container {
     text-align: center;
     padding-top: 50px;
+}
+
+.url-input{
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.url-form{
+  padding: 25px;
+}
+
+.flex-group{
+  display: flex;
+  width: 45%;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 70px;
+}
+
+.flex-item{
+  flex: inline;
+  margin-right: 10px;
 }

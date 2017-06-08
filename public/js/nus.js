@@ -2,17 +2,30 @@
   var _nus = function (data) {
     this._api_ = '/api/v1/shorten/';
     this._form_ = '#nus';
-    this._errormsg_ = 'An error occurred shortening that link';
+    this._s_date = '#start_date';
+    this._e_date = '#end_date';
+    this._link = '#link';
+    this._errormsg_ = 'An error occurred shortening that link, url format invalid. <br /> ' +
+      'Must be in format http(s)://weburl.com or http(s)://www.weburl.com';
   };
 
   _nus.prototype.init = function () {
-    this._input_ = $(this._form_).find('input');
-
-    if (!this.check(this._input_.val())) {
+    var c_new = false;
+    this._start_date_ = $(this._s_date).val();
+    this._end_date_ = $(this._e_date).val();
+    this._url_ = $(this._link);
+    //console.log(this._url_.val());
+    if (!this.check(this._url_.val())) {
       return this.alert(this._errormsg_, true);
     }
 
-    this.request(this._input_.val());
+    if(this._start_date_ !== ''){
+       c_new = true;
+    }
+
+    console.log(c_new);
+
+    this.request(this._url_.val(), this._start_date_, this._end_date_, c_new);
   };
 
   _nus.prototype.check = function (s) {
@@ -30,14 +43,16 @@
       + '</div>').insertBefore(this._form_);
   };
 
-  _nus.prototype.request = function (url) {
+  _nus.prototype.request = function (url, s_date, e_date, cNew) {
     var self = this;
-    $.post(self._api_, { long_url: url }, function (data) {
+    $.post(self._api_, { long_url: url, start_date: s_date, end_date: e_date, c_new: cNew }, function (data) {
       if (data.hasOwnProperty('status_code') && data.hasOwnProperty('status_txt')) {
         if (parseInt(data.status_code) == 200) {
-          self._input_.val(data.short_url).select();
+
+          self._url_.val(data.short_url).select();
           return self.alert('Copy your shortened url');
         } else {
+          console.log("GAT HERE");
           self._errormsg_ = data.status_txt;
         }
       }
