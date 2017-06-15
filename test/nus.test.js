@@ -3,17 +3,18 @@ var request = require('superagent')
   , expect = require('expect.js')
   , fakeredis;
 
-
-Date.prototype.addDays = function(days)
-{
-  var dat = new Date(this.valueOf() + days * 24 * 60 * 60 * 1000 );
-  return dat;
+function addDays(n){
+  var t = new Date();
+  t.setDate(t.getDate() + n);
+  var date = ((t.getDate() < 10) ?  '0'+t.getDate() : t.getDate())+"/"+(((t.getMonth() + 1) < 10 ) ? '0'+(t.getMonth()+1) : (t.getMonth()+1))+"/"+t.getFullYear();
+  return date;
 }
 
 describe('Test Node Url Shortener without start_date and end_date - Nus', function () {
   var nus
     , long_url
-    , short_url;
+    , short_url
+    , dateObject = {};
 
   beforeEach(function() {
     fakeredis = require('fakeredis').createClient(0, 'localhost', {fast : true});
@@ -29,10 +30,11 @@ describe('Test Node Url Shortener without start_date and end_date - Nus', functi
   });
 
   it('should shorten', function (done) {
-    nus.shorten(long_url, dateObject, cNew,  function (err, reply) {
+    nus.shorten(long_url, dateObject.start_date, dateObject.end_date, cNew,  function (err, reply) {
+      console.log(err);
       expect(err).to.be(null);
       expect(reply).to.not.be.empty();
-      expect(reply).to.only.have.keys('hash', 'long_url');
+      expect(reply).to.only.have.keys('hash', 'long_url', 'short_url');
       expect(reply.hash).to.match(/[\w=]+/);
       expect(reply.long_url).to.be(long_url);
       done();
@@ -40,14 +42,14 @@ describe('Test Node Url Shortener without start_date and end_date - Nus', functi
   });
 
   it('should expand', function (done) {
-    nus.getModel(function (err, redis) {
+    nus.getModel(short_url, function (err, redis) {
       fakeredis.multi([
         ['set', redis.kUrl(long_url), short_url],
         ['hmset', redis.kHash(short_url),
           'url', long_url,
           'hash', short_url,
-          'start_date', datesObject.start_date,
-          'end_date', datesObject.end_date,
+          'start_date', dateObject.start_date,
+          'end_date', dateObject.end_date,
           'clicks', 1
         ]
       ]).exec(function (err, replies) {
@@ -55,7 +57,7 @@ describe('Test Node Url Shortener without start_date and end_date - Nus', functi
         nus.shorten(long_url, function (err, reply) {
           expect(err).to.be(null);
           expect(reply).to.not.be.empty();
-          expect(reply).to.only.have.keys('hash', 'long_url');
+          expect(reply).to.only.have.keys('hash', 'long_url', 'short_url', 'start_date', 'end_date', 'clicks', 'status_code', 'status_txt');
           expect(reply.hash).to.match(/[\w=]+/);
           expect(reply.long_url).to.be(long_url);
           done();
@@ -64,7 +66,10 @@ describe('Test Node Url Shortener without start_date and end_date - Nus', functi
       });
     });
   });
-})
+});
+
+
+
 
 describe('Test Node Url Shortener with start_date and end_date - Nus', function () {
   var nus
@@ -81,15 +86,15 @@ describe('Test Node Url Shortener with start_date and end_date - Nus', function 
     startDate = new Date();
     long_url = 'http://example.com';
     short_url = 'foo';
-    dateObject = {'start_date': startDate, 'end_date': Date.addDays(2)};
-    cNew = 'false';
+    dateObject = {'start_date': startDate, 'end_date': addDays(startDate, 2)};
+    cNew = 'true';
   });
 
   it('should shorten', function (done) {
-    nus.shorten(long_url, dateObject, cNew,  function (err, reply) {
+    nus.shorten(long_url, dateObject.start_date, dateObject.end_date, cNew,  function (err, reply) {
       expect(err).to.be(null);
       expect(reply).to.not.be.empty();
-      expect(reply).to.only.have.keys('hash', 'long_url');
+      expect(reply).to.only.have.keys('hash', 'long_url', 'short_url', 'status_code', 'status_txt');
       expect(reply.hash).to.match(/[\w=]+/);
       expect(reply.long_url).to.be(long_url);
       done();
@@ -103,8 +108,8 @@ describe('Test Node Url Shortener with start_date and end_date - Nus', function 
         ['hmset', redis.kHash(short_url),
           'url', long_url,
           'hash', short_url,
-          'start_date', datesObject.start_date,
-          'end_date', datesObject.end_date,
+          'start_date', dateObject.start_date,
+          'end_date', dateObject.end_date,
           'clicks', 1
         ]
       ]).exec(function (err, replies) {
@@ -112,7 +117,7 @@ describe('Test Node Url Shortener with start_date and end_date - Nus', function 
         nus.shorten(long_url, function (err, reply) {
           expect(err).to.be(null);
           expect(reply).to.not.be.empty();
-          expect(reply).to.only.have.keys('hash', 'long_url');
+          expect(reply).to.only.have.keys('hash', 'long_url', 'short_url', 'start_date', 'end_date', 'clicks', 'status_code', 'status_txt');
           expect(reply.hash).to.match(/[\w=]+/);
           expect(reply.long_url).to.be(long_url);
           done();
