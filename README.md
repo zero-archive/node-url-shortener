@@ -14,7 +14,7 @@
 ## Quick Start
 
 ```bash
-$ git clone https://github.com/dotzero/node-url-shortener nus
+$ git clone git@bitbucket.org:mcommtechteam/url_shortner.git 
 $ cd nus
 $ npm install
 $ node app
