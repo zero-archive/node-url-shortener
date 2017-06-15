@@ -5,7 +5,6 @@ module.exports = function (app, nus) {
 
   router.route('/shorten')
     .post(function (req, res) {
-      console.log(req.body);
       nus.shorten(req.body['long_url'], req.body['start_date'], req.body['end_date'],
         req.body['c_new'], function (err, reply) {
         if (err) {
