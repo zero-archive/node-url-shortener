@@ -14,7 +14,7 @@
 ## Quick Start
 
 ```bash
-$ git clone git@bitbucket.org:mcommtechteam/url_shortner.git 
+$ git clone git@bitbucket.org:mcommtechteam/url_shortner.git
 $ cd nus
 $ npm install
 $ node app
@@ -48,7 +48,11 @@ $ NODE_ENV=production node app --url "http://example.com"
 
 # RESTful API
 
-`POST /api/v1/shorten` with form data `long_url=http://google.com`
+`POST /api/v1/shorten` with form data `long_url=http://google.com`, `start_date`="", `end_date`=""
+
+OR
+
+`POST /api/v1/shorten` with form data `long_url=http://google.com`, `start_date`="2017/06/19", `end_date`="2017/06/20"
 
 ```json
 {
@@ -64,13 +68,30 @@ $ NODE_ENV=production node app --url "http://example.com"
 
 ```json
 {
-  "clicks": "1",
-  "hash": "rnRu",
-  "long_url": "http://google.com",
-  "status_code": 200,
-  "status_txt": "OK"
+    "start_date": "undefined",
+    "end_date": "undefined",
+    "hash": "rnRu",
+    "long_url": "http://127.0.0.1:3000/rnRu",
+    "clicks": "0",
+    "status_code": 200,
+    "status_txt": "OK"
 }
 ```
+
+OR  if dates are set
+
+```json
+{
+    "start_date": "2017/06/19",
+    "end_date": "2017/06/20",
+    "hash": "rnRu",
+    "long_url": "http://127.0.0.1:3000/rnRu",
+    "clicks": "0",
+    "status_code": 200,
+    "status_txt": "OK"
+}
+```
+
 
 ## Tests
 
