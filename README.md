@@ -14,7 +14,7 @@
 ## Quick Start
 
 ```bash
-$ git clone git@bitbucket.org:mcommtechteam/url_shortner.git
+$ git clone git@github.com:dotzero/node-url-shortener.git
 $ cd nus
 $ npm install
 $ node app
@@ -40,7 +40,7 @@ Options:
 ## Installation on production
 
 ```bash
-$ git clone https://github.com/dotzero/node-url-shortener nus
+$ git clone git@github.com:dotzero/node-url-shortener.git nus
 $ cd nus
 $ npm install --production
 $ NODE_ENV=production node app --url "http://example.com"
