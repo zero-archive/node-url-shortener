@@ -8,7 +8,7 @@
 $ git clone https://github.com/optimizely/gobetter.git
 $ cd gobetter
 $ npm i
-$ node app
+$ npm run hotreload
 ```
 
 ## Command Line Options
