@@ -1,8 +1,8 @@
 import * as types from './types';
 
-export function filterTable(filter) {
+export function editDialog(linkId) {
     return {
-        type: types.FILTER,
-        filter
+        type: types.EDIT,
+        linkId
     };
 }
