@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import FilterableTable from './containers/Main';
+import Main from './containers/Main';
 import About from './components/About';
 
 export default (
 	<Switch>
-		<Route exact path="/" component={FilterableTable} />
+		<Route exact path="/" component={Main} />
 		<Route path="/about" component={About} />
 	</Switch>
 );
