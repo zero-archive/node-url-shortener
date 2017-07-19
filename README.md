@@ -84,5 +84,3 @@ $ npm test
 ## License
 
 Released under [the MIT license](LICENSE)
-
-Testing that I have repo access...
