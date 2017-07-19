@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import FilterableTable from './containers/FilterableTable';
+import FilterableTable from './containers/Main';
 import About from './components/About';
 
 export default (
