@@ -76,7 +76,7 @@
   "scripts": {
     "start": "node app",
     "test": "mocha",
-    "hotreload": "node server.js",
+    "hotreload": "node server",
     "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
     "eslint": "eslint ."
   }
