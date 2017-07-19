@@ -15,7 +15,7 @@ module.exports = {
     ],
     // Where you want the output to go
     output: {
-        path: path.join(__dirname, '/dist/'),
+        path: path.join(__dirname, '/public/'),
         filename: '[name]-[hash].min.js',
         publicPath: '/'
     },
