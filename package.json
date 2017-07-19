@@ -20,14 +20,51 @@
     "method-override": "^2.3.6",
     "morgan": "^1.7.0",
     "redis": "^2.6.0-2",
-    "yargs": "^4.7.1"
+    "yargs": "^4.7.1",
+    "file-loader": "^0.9.0",
+    "prop-types": "^15.5.9",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "react-hot-loader": "^3.0.0-beta.2",
+    "react-redux": "^4.4.5",
+    "react-router-dom": "^4.1.1",
+    "react-router-redux": "next",
+    "redux": "^3.5.2"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
     "fakeredis": "^1.0.3",
     "mocha": "^2.4.5",
     "superagent": "^2.0.0-alpha.3",
-    "superagent-mocker": "^0.4.0"
+    "superagent-mocker": "^0.4.0",
+    "autoprefixer": "^6.3.6",
+    "babel-core": "^6.8.0",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
+    "babel-polyfill": "^6.8.0",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.9.0",
+    "eslint-loader": "^1.5.0",
+    "eslint-plugin-react": "^5.0.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.16.1",
+    "json-loader": "^0.5.4",
+    "node-sass": "^3.7.0",
+    "postcss-loader": "^0.9.1",
+    "react-addons-test-utils": "^15.0.2",
+    "redux-devtools": "^3.2.0",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-log-monitor": "^1.0.11",
+    "rimraf": "^2.5.2",
+    "sass-loader": "^3.2.0",
+    "stats-webpack-plugin": "^0.3.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
   },
   "keywords": [
     "url",
@@ -37,6 +74,9 @@
   ],
   "scripts": {
     "start": "node app",
-    "test": "mocha"
+    "test": "mocha",
+    "fe": "node server",
+    "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
+    "eslint": "eslint ."
   }
 }
