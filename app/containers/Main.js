@@ -1,29 +1,14 @@
 // import PropTypes from 'prop-types';
 import React from 'react';
 // import { connect } from 'react-redux';
+import Header from '../components/Header';
 
 const Main = () => {
     let input;
 
     return (
     <div>
-        <div className="soft-quad">
-            <header className="background--faint flex soft-quad">
-                <div className="flex flex--1 flex-align--center">
-                <span className="push--right push-half--top">
-                
-                </span>
-                <h3 className="flush caps">Go Better</h3>
-                </div>
-                <div className="flex flex--1 flex-align--center">
-                <div className="flex flex--1 lego-input-icon display--inline-block push--right">
-                    <input type="text" className="oui-text-input soft-triple--sides" placeholder="Paste URL to create short link" />
-                </div>
-
-                <button className="oui-button oui-button--highlight oui-button--disabled">Add Short Link...</button>
-                </div>
-            </header>
-        </div>
+        <Header />
         <div className="soft-double">
             <div className="soft-double--sides flex push-double--top">
                 <h2 className="flex flex--1">Short Links</h2>
