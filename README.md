@@ -9,7 +9,6 @@
 ## Using
 
 * [Express 4](http://expressjs.com/)
-* [Redis](http://redis.io)
 
 ## Quick Start
 
