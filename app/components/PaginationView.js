@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
+import _ from 'underscore';
 
 class PaginationView extends React.Component {
     constructor(props) {
@@ -46,10 +46,8 @@ class PaginationView extends React.Component {
     getPager(totalItems, currentPage, pageSize) {
         // default to first page
         const current = currentPage || 1;
-
         // default page size is 10
         const pageS = pageSize || 10;
-
         // calculate total pages
         const totalPages = Math.ceil(totalItems / pageSize);
 
@@ -76,7 +74,6 @@ class PaginationView extends React.Component {
         // calculate start and end item indexes
         const startIndex = (current - 1) * pageS;
         const endIndex = Math.min(startIndex + pageS - 1, totalItems - 1);
-
         // create an array of pages to ng-repeat in the pager control
         const pages = _.range(startPage, endPage + 1);
         // return object with all pager properties required by the view

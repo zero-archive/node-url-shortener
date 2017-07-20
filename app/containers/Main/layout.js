@@ -8,8 +8,7 @@ import SearchIcon from '../../components/icons/SearchIcon';
 
 const Main = (props) => {
     const { links, onEdit, handleClick } = props;
-
-    return (
+    return(
       <div>
           <Header handleClick={ () => { return handleClick; } } />
             <div className="soft-double">
@@ -23,7 +22,7 @@ const Main = (props) => {
                 </div>
               </div>
               <ShortLinksTable links={links} onEdit={onEdit}/>
-              <PaginationView items={links} onChangePage={ () => { return handleClick; } } />
+              <PaginationView items={links} onChangePage={onEdit}/>
             </div>
         </div>
     );
