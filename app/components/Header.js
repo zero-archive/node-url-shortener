@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { Button } from 'optimizely-oui';
+
 import Logo from './Logo';
 import LinkIcon from './icons/LinkIcon';
 
@@ -17,7 +19,7 @@ const Header = (props) => (
             <input type="text" className="oui-text-input soft-triple--sides" placeholder="Paste URL to create short link" />
             <LinkIcon />
         </div>
-            <button onClick={props.handleClick} className="oui-button oui-button--highlight">Add Short Link...</button>
+            <Button onClick={props.handleClick} style="highlight">Add Short Link...</Button>
         </div>
     </header>
 );

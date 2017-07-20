@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Header from '../../components/Header';
 import ShortLinksTable from '../../components/ShortLinksTable';
+import PaginationView from '../../components/PaginationView';
 import SearchIcon from '../../components/icons/SearchIcon';
 
 const Main = (props) => {
@@ -22,7 +23,8 @@ const Main = (props) => {
                 </div>
               </div>
               <ShortLinksTable links={links} onEdit={onEdit}/>
-          </div>
+              <PaginationView items={links} onChangePage={ () => { return handleClick; } } />
+            </div>
         </div>
     );
 };
