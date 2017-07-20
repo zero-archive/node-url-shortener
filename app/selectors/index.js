@@ -1,1 +1,3 @@
-// more to come
+export function getLinks(state) {
+    return state.links;
+}

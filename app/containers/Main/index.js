@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 // actions and selectors
 import { editDialog } from '../../actions';
+import { getLinks } from '../../selectors';
 
 // display layers
 import Main from './layout';
@@ -9,7 +10,7 @@ import Main from './layout';
 // the data go here
 const mapStateToProps = (state) => {
     return {
-        foo: state.foo
+        links: getLinks(state)
     };
 };
 
