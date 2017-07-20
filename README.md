@@ -1,23 +1,14 @@
-# Node Url Shortener
+# Go Better: A hackweek project to improve go/ links.
 
-> A modern, minimalist, and lightweight URL shortener using [Node.js](http://nodejs.org) and [Redis](http://redis.io).
-
-[![Build Status](https://travis-ci.org/dotzero/node-url-shortener.svg?branch=master)](https://travis-ci.org/dotzero/node-url-shortener)
-[![GitHub tag](https://img.shields.io/github/tag/dotzero/node-url-shortener.svg)](https://github.com/dotzero/node-url-shortener)
-[![Dependency Status](https://david-dm.org/dotzero/node-url-shortener.svg)](https://david-dm.org/dotzero/node-url-shortener)
-
-## Using
-
-* [Express 4](http://expressjs.com/)
-* [Redis](http://redis.io)
+> Based on a lightweight node URL shortener (https://github.com/dotzero/node-url-shortener)
 
 ## Quick Start
 
 ```bash
-$ git clone https://github.com/dotzero/node-url-shortener nus
-$ cd nus
-$ npm install
-$ node app
+$ git clone https://github.com/optimizely/gobetter.git
+$ cd gobetter
+$ npm i
+$ npm run hotreload
 ```
 
 ## Command Line Options
