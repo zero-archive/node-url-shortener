@@ -48,11 +48,10 @@ $ NODE_ENV=production node app --url "http://example.com"
 
 # RESTful API
 
-`POST /api/v1/shorten` with form data `long_url=http://google.com`, `start_date`="", `end_date`="", `c_new`=false
+`POST /api/v1/shorten` with form data `long_url=http://google.com`,
+`start_date=""`, `end_date=""`, `c_new=false`.
 
 NOTE: You can send the post requests without the date and c_new params
-
-OR
 
 `POST /api/v1/shorten` with form data `long_url=http://google.com`, `start_date`="2017/06/19", `end_date`="2017/06/20", `c_new`=true
 
@@ -95,7 +94,6 @@ OR  if dates are set
     "status_txt": "OK"
 }
 ```
-
 
 ## Tests
 

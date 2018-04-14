@@ -27,7 +27,6 @@ describe('Test Node Url Shortener - RESTful API', function () {
         long_url: 'https://www.google.com'
       })
       .end(function(_, data) {
-        // console.log(data);
         expect(data).to.an('object');
         expect(data).not.to.be.empty();
         expect(data).to.have.keys('hash', 'long_url', 'short_url', 'status_code', 'status_txt', 'start_date', 'end_date');
@@ -52,7 +51,6 @@ describe('Test Node Url Shortener - RESTful API', function () {
         short_url: id
       })
       .end(function(_, data) {
-        // console.log(data);
         expect(data).to.an('object');
         expect(data).not.to.be.empty();
         expect(data).to.have.keys('hash', 'long_url', 'short_url', 'status_code', 'status_txt', 'start_date', 'end_date');
@@ -74,7 +72,6 @@ describe('Test Node Url Shortener - RESTful API', function () {
     });
     request.get('/api/v1/expand/' + id)
       .end(function(_, data) {
-        // console.log(data);
         expect(data).to.an('object');
         expect(data).not.to.be.empty();
         expect(data).to.have.keys('hash', 'long_url', 'short_url', 'status_code', 'status_txt', 'start_date', 'end_date');

@@ -14,16 +14,12 @@
     this._start_date_ = $(this._s_date).val();
     this._end_date_ = $(this._e_date).val();
     this._url_ = $(this._link);
-    //console.log(this._url_.val());
     if (!this.check(this._url_.val())) {
       return this.alert(this._errormsg_, true);
     }
-
     if(this._start_date_ !== ''){
        c_new = true;
     }
-
-    console.log(c_new);
 
     this.request(this._url_.val(), this._start_date_, this._end_date_, c_new);
   };
@@ -52,7 +48,6 @@
           self._url_.val(data.short_url).select();
           return self.alert('Copy your shortened url');
         } else {
-          console.log("GAT HERE");
           self._errormsg_ = data.status_txt;
         }
       }

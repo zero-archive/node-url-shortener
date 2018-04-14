@@ -5,8 +5,7 @@ module.exports = function (app, nus) {
 
   router.route('/shorten')
     .post(function (req, res) {
-      nus.shorten(req.body['long_url'], req.body['start_date'], req.body['end_date'],
-        req.body['c_new'], function (err, reply) {
+      nus.shorten(req.body['long_url'], req.body['start_date'], req.body['end_date'], req.body['c_new'], function (err, reply) {
         if (err) {
           jsonResponse(res, err);
         } else if (reply) {

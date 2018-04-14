@@ -34,7 +34,6 @@ describe('Test Node Url Shortener without start_date and end_date - Nus', functi
 
   it('should shorten', function (done) {
     nus.shorten(long_url, dateObject.start_date, dateObject.end_date, cNew,  function (err, reply) {
-      console.log(err);
       expect(err).to.be(null);
       expect(reply).to.not.be.empty();
       expect(reply).to.only.have.keys('hash', 'long_url');
