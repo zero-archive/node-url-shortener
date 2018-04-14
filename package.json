@@ -4,23 +4,20 @@
   "version": "0.8.1",
   "author": "dotzero <mail@dotzero.ru>",
   "license": "MIT",
-  "engines": [
-    "node"
-  ],
   "repository": {
     "type": "git",
     "url": "http://github.com/dotzero/node-url-shortener"
   },
   "dependencies": {
-    "base58": "^0.1.0",
-    "body-parser": "^1.15.1",
-    "cors": "^2.7.1",
-    "ejs": "^2.4.1",
-    "express": "^4.13.4",
-    "method-override": "^2.3.6",
-    "morgan": "^1.7.0",
-    "redis": "^2.6.0-2",
-    "yargs": "^4.7.1"
+    "base58": "^1.0.1",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "ejs": "^2.5.8",
+    "express": "^4.16.3",
+    "method-override": "^2.3.10",
+    "morgan": "^1.9.0",
+    "redis": "^2.8.0",
+    "yargs": "^11.0.0"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
